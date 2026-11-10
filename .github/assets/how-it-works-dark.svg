@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 440" width="1280" height="440" role="img" aria-label="How Plainpen works: your text is checked inside your browser and never sent to a server">
+  <rect width="1280" height="440" rx="28" fill="#0f1420"/>
+  <rect x="40" y="120" width="240" height="170" rx="18" fill="#161d2e" stroke="#28324a" stroke-width="2"/>
+  <text x="160" y="199" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e8edf7">Your text</text>
+  <text x="160" y="231" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#a7b2c8">typed or pasted</text>
+  <path d="M290 205H350" stroke="#7c88a1" stroke-width="3"/><path d="M346 197l12 8l-12 8z" fill="#7c88a1"/>
+  <rect x="360" y="48" width="560" height="304" rx="22" fill="#161d2e" stroke="#3f5fd6" stroke-width="2.5"/>
+  <text x="640" y="96" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e8edf7">Inside your browser</text>
+  <rect x="392" y="124" width="496" height="54" rx="27" fill="#1d2742"/>
+  <circle cx="422" cy="151" r="9" fill="#ff6b6b"/>
+  <text x="444" y="158" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#e8edf7">Skeleton-Rank</text>
+  <text x="868" y="158" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" fill="#a7b2c8">spelling</text>
+  <rect x="392" y="194" width="496" height="54" rx="27" fill="#1d2742"/>
+  <circle cx="422" cy="221" r="9" fill="#3f5fd6"/>
+  <text x="444" y="228" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#e8edf7">Tag-Lattice</text>
+  <text x="868" y="228" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" fill="#a7b2c8">grammar</text>
+  <rect x="392" y="264" width="496" height="54" rx="27" fill="#1d2742"/>
+  <circle cx="422" cy="291" r="9" fill="#5fd39a"/>
+  <text x="444" y="298" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#e8edf7">Trust-Gate</text>
+  <text x="868" y="298" text-anchor="end" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" fill="#a7b2c8">learns from you</text>
+  <path d="M930 205H990" stroke="#7c88a1" stroke-width="3"/><path d="M986 197l12 8l-12 8z" fill="#7c88a1"/>
+  <rect x="1000" y="120" width="240" height="170" rx="18" fill="#161d2e" stroke="#28324a" stroke-width="2"/>
+  <text x="1120" y="199" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e8edf7">Teacher’s pen</text>
+  <text x="1120" y="231" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#a7b2c8">marks and fixes</text>
+  <text x="640" y="404" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#ff6b6b">✕ No server   ✕ No AI model   ✕ No account   ✕ No tracking of your words</text>
+</svg>

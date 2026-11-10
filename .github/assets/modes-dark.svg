@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 180" width="1280" height="180" role="img" aria-label="Five writing modes: Professional, Technical, Simplified, Friendly, Casual">
+  <rect width="1280" height="180" rx="24" fill="#0f1420"/>
+  <rect x="24" y="24" width="232" height="132" rx="18" fill="#161d2e" stroke="#28324a" stroke-width="2"/>
+  <rect x="24" y="24" width="232" height="8" rx="4" fill="#3f5fd6"/>
+  <text x="46" y="88" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e8edf7">Professional</text>
+  <text x="46" y="122" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#a7b2c8">Clear and formal</text>
+  <rect x="272" y="24" width="232" height="132" rx="18" fill="#161d2e" stroke="#28324a" stroke-width="2"/>
+  <rect x="272" y="24" width="232" height="8" rx="4" fill="#1f8fb3"/>
+  <text x="294" y="88" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e8edf7">Technical</text>
+  <text x="294" y="122" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#a7b2c8">Code aware, precise</text>
+  <rect x="520" y="24" width="232" height="132" rx="18" fill="#161d2e" stroke="#28324a" stroke-width="2"/>
+  <rect x="520" y="24" width="232" height="8" rx="4" fill="#a77b0c"/>
+  <text x="542" y="88" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e8edf7">Simplified</text>
+  <text x="542" y="122" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#a7b2c8">ASD-STE100 style</text>
+  <rect x="768" y="24" width="232" height="132" rx="18" fill="#161d2e" stroke="#28324a" stroke-width="2"/>
+  <rect x="768" y="24" width="232" height="8" rx="4" fill="#d14d7a"/>
+  <text x="790" y="88" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e8edf7">Friendly</text>
+  <text x="790" y="122" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#a7b2c8">Warm and relaxed</text>
+  <rect x="1016" y="24" width="232" height="132" rx="18" fill="#161d2e" stroke="#28324a" stroke-width="2"/>
+  <rect x="1016" y="24" width="232" height="8" rx="4" fill="#8a52d0"/>
+  <text x="1038" y="88" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e8edf7">Casual</text>
+  <text x="1038" y="122" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#a7b2c8">Slang welcome</text>
+</svg>

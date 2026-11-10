@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-label="Plainpen: the private grammar and spell checker">
+  <rect width="1280" height="420" rx="28" fill="#0f1420"/>
+  <g transform="translate(72 78) scale(1.6)"><rect width="64" height="64" rx="14" fill="#3f5fd6"/>
+  <path d="M15 46l5-13 24-24 8 8-24 24z" fill="#ffffff"/>
+  <path d="M15 46l5-13 8 8z" fill="#c9d3f7"/>
+  <path d="M39 14l8 8" stroke="#3f5fd6" stroke-width="3"/>
+  <path d="M12 54q3-3 6 0t6 0t6 0t6 0" stroke="#ff6b5a" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <text x="72" y="268" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="84" font-weight="700" fill="#e8edf7">Plainpen</text>
+  <text x="74" y="320" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="29" fill="#a7b2c8">The private grammar and spell checker.</text>
+  <text x="74" y="364" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" fill="#7c88a1">Open source · No AI · No login · Nothing leaves your device</text>
+
+  <rect x="700" y="52" width="520" height="316" rx="18" fill="#161d2e" stroke="#28324a" stroke-width="2"/>
+  <circle cx="730" cy="80" r="6" fill="#28324a"/><circle cx="750" cy="80" r="6" fill="#28324a"/><circle cx="770" cy="80" r="6" fill="#28324a"/>
+
+  <text x="744" y="140" font-family="Caveat, 'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive" font-size="32" font-weight="600" fill="#ff6b6b">There</text>
+  <text x="740" y="176" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#e8edf7" textLength="64" lengthAdjust="spacingAndGlyphs">Their</text>
+  <path d="M736 168l74 -14" stroke="#ff6b6b" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="818" y="176" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#e8edf7" textLength="250" lengthAdjust="spacingAndGlyphs">is a meeting at 10.</text>
+
+  <text x="782" y="222" font-family="Caveat, 'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive" font-size="32" font-weight="600" fill="#ff6b6b">received</text>
+  <text x="740" y="258" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#e8edf7" textLength="14" lengthAdjust="spacingAndGlyphs">I</text>
+  <text x="764" y="258" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#e8edf7" textLength="112" lengthAdjust="spacingAndGlyphs">recieved</text>
+  <path d="M764 268 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0 q2 -4 4 0 t4 0" stroke="#ff6b6b" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <text x="888" y="258" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#e8edf7" textLength="130" lengthAdjust="spacingAndGlyphs">your file.</text>
+
+  <text x="740" y="326" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#e8edf7" textLength="108" lengthAdjust="spacingAndGlyphs">The file</text>
+  <text x="858" y="326" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#e8edf7" textLength="116" lengthAdjust="spacingAndGlyphs">was sent</text>
+  <path d="M858 336h116" stroke="#b48cf0" stroke-width="2.6" stroke-dasharray="2 6" stroke-linecap="round"/>
+  <text x="984" y="326" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#e8edf7" textLength="80" lengthAdjust="spacingAndGlyphs">by me.</text>
+  <text x="1092" y="300" font-family="Caveat, 'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive" font-size="24" font-weight="600" fill="#b48cf0">active?</text>
+
+  <rect x="1060" y="70" width="140" height="34" rx="17" fill="#173528"/>
+  <text x="1130" y="93" text-anchor="middle" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#5fd39a">✓ Clear · 92</text>
+</svg>
