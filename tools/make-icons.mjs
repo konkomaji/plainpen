@@ -25,8 +25,16 @@ const inPoly = (x, y, p) => { let c = false; for (let i = 0, j = p.length - 1; i
 const inRound = (x, y, s, r) => { const dx = Math.max(r - x, 0, x - (s - r)), dy = Math.max(r - y, 0, y - (s - r)); return dx * dx + dy * dy <= r * r; };
 
 // design in a 64 unit box (same shapes as icon.svg)
-const BG = [63, 95, 214], WHITE = [255, 255, 255], TIP = [201, 211, 247];
-const BODY = [[14, 50], [19, 37], [45, 11], [53, 19], [27, 45]], NIB = [[14, 50], [19, 37], [27, 45]], CAP = [[40, 16], [43, 13], [51, 21], [48, 24]];
+const BG = [63, 95, 214], WHITE = [255, 255, 255], TIP = [201, 211, 247], RED = [255, 107, 90];
+const BODY = [[15, 46], [20, 33], [44, 9], [52, 17], [28, 41]], NIB = [[15, 46], [20, 33], [28, 41]];
+const CAP = [[40.06, 12.94], [48.06, 20.94], [45.94, 23.06], [37.94, 15.06]];
+// the teacher's red wavy mark under the tip: M12 54 q3-3 6 0 t6 0 t6 0 t6 0, stroke 3.2
+const WAVE = [];
+for (let k = 0; k < 4; k++) {
+  const x0 = 12 + k * 6, cy = k % 2 ? 57 : 51;
+  for (let t = 0; t <= 1.0001; t += 0.05) WAVE.push([(1 - t) * (1 - t) * x0 + 2 * (1 - t) * t * (x0 + 3) + t * t * (x0 + 6), (1 - t) * (1 - t) * 54 + 2 * (1 - t) * t * cy + t * t * 54]);
+}
+const nearWave = (u, v) => { for (let i = 1; i < WAVE.length; i++) { const [ax, ay] = WAVE[i - 1], [bx, by] = WAVE[i]; const dx = bx - ax, dy = by - ay; const t = Math.max(0, Math.min(1, ((u - ax) * dx + (v - ay) * dy) / (dx * dx + dy * dy || 1))); const ex = ax + t * dx - u, ey = ay + t * dy - v; if (ex * ex + ey * ey <= 1.6 * 1.6) return true; } return false; };
 
 function render(size, { maskable }) {
   const S = 4, buf = Buffer.alloc(size * size * 4);
@@ -41,6 +49,7 @@ function render(size, { maskable }) {
       let c = BG;
       if (inPoly(u, v, BODY)) c = inPoly(u, v, NIB) ? TIP : WHITE;
       if (inPoly(u, v, CAP)) c = BG;
+      if (nearWave(u, v)) c = RED;
       r += c[0]; g += c[1]; b += c[2]; a += 255;
     }
     const n = S * S, i = (py * size + px) * 4;

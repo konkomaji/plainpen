@@ -2,7 +2,7 @@
 //  * Pages, scripts and styles: network first, so a new release shows up immediately.
 //    The cache is only the offline fallback.
 //  * Fonts and the dictionary never change between releases: cache first (fast, offline).
-const VERSION = 'plainpen-v3';
+const VERSION = 'plainpen-v4';
 const CORE = ['./', 'index.html', 'privacy.html', 'terms.html', 'js/legal.js', 'style.css', 'design/tokens.css', 'manifest.webmanifest', 'icon.svg', 'js/app.js', 'js/engine.js', 'js/lexicon.js', 'js/profile.js', 'js/store.js', 'js/textcase.js', 'js/worker.js', 'js/config.js', 'data/words.txt',
   'fonts/poppins-latin-400-normal.woff2', 'fonts/poppins-latin-500-normal.woff2', 'fonts/poppins-latin-600-normal.woff2', 'fonts/poppins-latin-700-normal.woff2', 'fonts/caveat-latin-600-normal.woff2', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/bmc-button.svg', 'icons/bmc-logo.svg'];
 const STATIC = /\/(fonts|data)\//;
