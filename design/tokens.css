@@ -1,0 +1,113 @@
+/* Plainpen design tokens. Every value in style.css comes from here.
+   Read design/DESIGN.md before adding a token. */
+
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/poppins-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/poppins-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/poppins-latin-700-normal.woff2") format("woff2"); }
+
+@font-face { font-family: "Caveat"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/caveat-latin-600-normal.woff2") format("woff2"); }
+
+:root {
+  /* ---- type: Poppins, minor-third scale (1.2) from 16px ---- */
+  --font-ui: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive; /* teacher's pen only */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --fs-1: 0.8125rem;   /* 13  captions, status */
+  --fs-2: 0.875rem;    /* 14  controls, notes */
+  --fs-3: 1rem;        /* 16  body */
+  --fs-4: 1.2rem;      /* 19  editor text, lead */
+  --fs-5: 1.44rem;     /* 23  h3/h2 small */
+  --fs-6: 1.728rem;    /* 28  h2 */
+  --fs-7: clamp(1.9rem, 1.2rem + 2.6vw, 2.6rem); /* h1 */
+  --lh-tight: 1.2; --lh-ui: 1.45; --lh-body: 1.65; --lh-editor: 2.4;
+  --fw-regular: 400; --fw-medium: 500; --fw-semi: 600; --fw-bold: 700;
+
+  /* ---- space: 4px grid ---- */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-7: 32px; --s-8: 40px; --s-9: 48px; --s-10: 64px;
+
+  /* ---- shape ---- */
+  --r-1: 6px; --r-2: 10px; --r-3: 16px; --r-pill: 999px;
+  --bw: 1px;
+
+  /* ---- motion ---- */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-1: 120ms; --dur-2: 220ms; --dur-3: 400ms;
+
+  /* ---- colour roles: one seed hue per writing mode (set by [data-mode]) ---- */
+  --hue: 255;
+  /* proofreader's marks: fixed hues so a mark means the same in every mode */
+  --hue-spelling: 25; --hue-grammar: 255; --hue-punct: 75; --hue-style: 285;
+
+  /* fallback palette for browsers without oklch() */
+  --surface-0: #f7f9fc; --surface-1: #ffffff; --surface-2: #eef2f9; --surface-3: #e3e9f4;
+  --border: #dbe2ef; --text-1: #1b2433; --text-2: #4d5a70; --text-3: #7a869b;
+  --accent: #3f5fd6; --accent-soft: #e6ebfb; --accent-ink: #ffffff;
+  --mark-spelling: #d0392e; --mark-grammar: #2f64c8; --mark-punct: #b7790f; --mark-style: #7b6fb8;
+  --good: #1f8a5b; --bad: #c4372c;
+  --glow: 0 0 0 4px rgba(63, 95, 214, .16);
+  --bmc: #ffdd00; /* Buy Me a Coffee yellow */
+  --marker: #ffe45c; --marker-soft: rgba(255, 228, 92, .6); /* highlighter yellow */
+  --on-strong: #ffffff; /* text on saturated fills (marks, danger) */
+}
+@supports (color: oklch(50% 0.1 20)) {
+  :root {
+    --surface-0: oklch(98.4% 0.008 var(--hue));
+    --surface-1: oklch(100% 0 0);
+    --surface-2: oklch(96.2% 0.016 var(--hue));
+    --surface-3: oklch(92.6% 0.026 var(--hue));
+    --border:    oklch(90.5% 0.02 var(--hue));
+    --text-1:    oklch(25% 0.03 var(--hue));
+    --text-2:    oklch(46% 0.03 var(--hue));
+    --text-3:    oklch(60% 0.025 var(--hue));
+    --accent:      oklch(55% 0.19 var(--hue));
+    --accent-soft: oklch(94.5% 0.04 var(--hue));
+    --accent-ink:  oklch(99% 0.005 var(--hue));
+    --mark-spelling: oklch(57% 0.21 var(--hue-spelling));
+    --mark-grammar:  oklch(54% 0.18 var(--hue-grammar));
+    --mark-punct:    oklch(62% 0.15 var(--hue-punct));
+    --mark-style:    oklch(60% 0.09 var(--hue-style));
+    --good: oklch(56% 0.14 160);
+    --bad:  oklch(55% 0.2 27);
+    --glow: 0 0 0 4px oklch(55% 0.19 var(--hue) / .18);
+  }
+}
+
+/* writing modes choose the seed hue, nothing else */
+[data-mode="professional"] { --hue: 255; }
+[data-mode="technical"]    { --hue: 200; }
+[data-mode="ste"]          { --hue: 70; }
+[data-mode="friendly"]     { --hue: 350; }
+[data-mode="casual"]       { --hue: 295; }
+
+/* ---- elevation ---- */
+:root {
+  --e-0: none;
+  --e-1: 0 1px 2px rgba(27, 36, 51, .06), 0 1px 1px rgba(27, 36, 51, .04);
+  --e-2: 0 2px 4px rgba(27, 36, 51, .05), 0 8px 24px rgba(27, 36, 51, .08);
+  --e-3: 0 4px 8px rgba(27, 36, 51, .06), 0 20px 48px rgba(27, 36, 51, .14);
+}
+
+/* ---- dark theme: same roles, lower lightness ---- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-0: #12151c; --surface-1: #181c25; --surface-2: #1e2430; --surface-3: #28303f;
+  --border: #2d3646; --text-1: #e9edf5; --text-2: #aab4c6; --text-3: #7f8aa0;
+  --accent: #8ea6ff; --accent-soft: #232c4a; --accent-ink: #0e1220;
+  --mark-spelling: #ff8478; --mark-grammar: #86b0ff; --mark-punct: #f0b85a; --mark-style: #b2a7ee;
+  --good: #5fd39e; --bad: #ff8a80;
+  --glow: 0 0 0 4px rgba(142, 166, 255, .22);
+  --e-1: 0 1px 2px rgba(0,0,0,.4); --e-2: 0 8px 24px rgba(0,0,0,.4); --e-3: 0 20px 48px rgba(0,0,0,.5);
+}
+@supports (color: oklch(50% 0.1 20)) {
+  :root[data-theme="dark"] {
+    --surface-0: oklch(18% 0.012 var(--hue)); --surface-1: oklch(21% 0.014 var(--hue));
+    --surface-2: oklch(25% 0.02 var(--hue));  --surface-3: oklch(30% 0.026 var(--hue));
+    --border: oklch(33% 0.022 var(--hue));
+    --text-1: oklch(95% 0.01 var(--hue)); --text-2: oklch(76% 0.025 var(--hue)); --text-3: oklch(62% 0.025 var(--hue));
+    --accent: oklch(76% 0.13 var(--hue)); --accent-soft: oklch(30% 0.06 var(--hue)); --accent-ink: oklch(18% 0.02 var(--hue));
+    --mark-spelling: oklch(74% 0.16 var(--hue-spelling)); --mark-grammar: oklch(76% 0.13 var(--hue-grammar));
+    --mark-punct: oklch(80% 0.13 var(--hue-punct)); --mark-style: oklch(76% 0.09 var(--hue-style));
+    --glow: 0 0 0 4px oklch(76% 0.13 var(--hue) / .26);
+  }
+}

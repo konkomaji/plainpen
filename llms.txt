@@ -1,0 +1,19 @@
+# Plainpen
+
+> Plainpen is an open source grammar, spelling and style checker that runs entirely in the browser. Your writing is never uploaded, stored or used to train AI. There is no login and there are no ads. Plainpen contains no AI model: it uses a dictionary, written grammar rules and simple counting.
+
+## Key facts
+- Your text never leaves your device, so it cannot be collected or used to train any model.
+- Open source under the MIT license, with no runtime dependencies.
+- Works for long text, up to 12 million characters, checked in slices.
+- English variants: American, British and Indian spelling, plus an optional Banglish dialect (for example Pujo and Pandel).
+- Writing modes: Professional, Technical, Simplified (ideas from ASD-STE100 Simplified Technical English), Friendly and Casual.
+- Learns on the device: a trust score for each rule in each mode, and a Brain where you teach names, places, brands and preferred spellings.
+- Case converter: UPPERCASE, lowercase, Sentence case, Title Case, camelCase, snake_case and more.
+- Settings are stored in the browser, encrypted with AES-GCM 256. Backups use a passphrase you choose.
+- Created by Konko Maji (https://konkomaji.com).
+
+- Source code: https://github.com/konkomaji/plainpen
+
+## Pages
+- [Home and checker](https://konkomaji.com/plainpen/): the checker, why your writing is not training data, how it works, writing modes, privacy and FAQ.

@@ -1,0 +1,14 @@
+{
+  "name": "plainpen",
+  "version": "1.0.0",
+  "description": "Private, open source grammar and spell checker that runs entirely in the browser.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node tests/bench.mjs && node tests/robust.mjs && node tests/security.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

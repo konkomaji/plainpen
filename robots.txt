@@ -1,0 +1,31 @@
+# Plainpen protects writers, so it separates search and answer engines from AI training crawlers.
+# The site content is public and welcome in search and answer engines.
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+
+# AI training crawlers are not welcome.
+User-agent: GPTBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+User-agent: Bytespider
+Disallow: /
+User-agent: Applebot-Extended
+Disallow: /
+
+Sitemap: https://konkomaji.com/plainpen/sitemap.xml

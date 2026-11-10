@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-mode="professional" data-teacher="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'">
+<meta name="referrer" content="no-referrer">
+<title>Plainpen: Open Source Grammar Checker That Never Trains AI</title>
+<meta name="description" content="Open source grammar and spell checker that runs in your browser. Your writing is never uploaded, stored or used to train AI. No login, no ads, built for long text.">
+<link rel="canonical" href="https://konkomaji.com/plainpen/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#f7f9fc">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Plainpen">
+<meta property="og:title" content="Plainpen: Open Source Grammar Checker That Never Trains AI">
+<meta property="og:description" content="Open source grammar and spell checker that runs in your browser. Your writing is never uploaded, stored or used to train AI. No login, no ads, built for long text.">
+<meta property="og:url" content="https://konkomaji.com/plainpen/">
+<meta property="og:image" content="https://konkomaji.com/plainpen/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Plainpen">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="design/tokens.css">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Plainpen","url":"https://konkomaji.com/plainpen/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (modern web browser)","browserRequirements":"Requires JavaScript and module web workers","isAccessibleForFree":true,"creator":{"@type":"Person","name":"Konko Maji","url":"https://konkomaji.com","sameAs":["https://github.com/konkomaji","https://www.instagram.com/whereiskonko/","https://www.linkedin.com/in/konkomaji","https://x.com/konkomaji"]},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"inLanguage":["en-US","en-GB","en-IN"],"description":"An open source grammar, spelling and style checker that runs entirely in the browser. Your writing is never uploaded, stored or used to train AI. No account and no ads.","featureList":["Never uploads or trains on your writing","Grammar and spelling checks","US, UK and Indian English","Simplified Technical English (ASD-STE100) checks","Long text support","Learns from your choices on your device","Case converter","Open source"]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Will my writing be used to train AI?","acceptedAnswer":{"@type":"Answer","text":"No. Your text never leaves your device, so there is nothing for anyone to collect or train on. Plainpen has no AI model inside it, and the source code is open so you can check."}},
+{"@type":"Question","name":"Is my text sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Checking runs in a web worker inside your browser. Your text is never uploaded."}},
+{"@type":"Question","name":"Does Plainpen use AI?","acceptedAnswer":{"@type":"Answer","text":"No. It uses a dictionary, written grammar rules and simple counting. It does not use a language model."}},
+{"@type":"Question","name":"Is it free, and do I need an account?","acceptedAnswer":{"@type":"Answer","text":"It is free. There is no login, no ads and no usage limit."}},
+{"@type":"Question","name":"Which kinds of English does it support?","acceptedAnswer":{"@type":"Answer","text":"American, British and Indian English spelling, plus an optional Banglish dialect for romanised Bengali words such as Pujo and Pandel."}},
+{"@type":"Question","name":"What is Simplified Technical English?","acceptedAnswer":{"@type":"Answer","text":"ASD-STE100 is a controlled language standard for technical writing. Plainpen's Simplified mode checks sentence length, tense, modal verbs and plain word choice. It does not include the official ASD dictionary."}},
+{"@type":"Question","name":"How does it learn?","acceptedAnswer":{"@type":"Answer","text":"Each rule has a trust score for each writing mode. When you accept or dismiss a suggestion the score changes, and rules you keep dismissing go quiet. You can also teach words, names and places with a note. All of this stays on your device."}},
+{"@type":"Question","name":"How long can the text be?","acceptedAnswer":{"@type":"Answer","text":"Up to 12 million characters. Long text is checked in slices so the page stays responsive, and only changed paragraphs are checked again."}}
+]},
+{"@type":"HowTo","name":"How to check your writing with Plainpen","step":[
+{"@type":"HowToStep","name":"Paste or type your text","text":"Paste text into the page or open a text file."},
+{"@type":"HowToStep","name":"Pick a writing mode and English","text":"Choose Professional, Technical, Simplified, Friendly or Casual, then choose US, UK or Indian English."},
+{"@type":"HowToStep","name":"Review the notes","text":"Accept a fix, dismiss it, or teach Plainpen a word. Copy or download the finished text."}
+]}
+]}
+</script>
+</head>
+<body>
+<a class="skip" href="#editor">Skip to the editor</a>
+
+<header class="top"><div class="wrap top-in">
+  <a class="brand" href="./" aria-label="Plainpen home">
+    <svg class="mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27 L8 19 L22 5 L27 10 L13 24 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 8 L24 13" stroke="currentColor" stroke-width="2"/><path d="M5 27 L8 19 L13 24 Z" fill="currentColor"/></svg>
+    <span>Plainpen</span>
+  </a>
+  <p class="tag">Open source. Private by design. Your writing is never used to train AI.</p>
+  <nav class="top-actions" aria-label="Tools">
+    <button id="btn-install" class="primary" type="button" hidden>Install app</button>
+    <button id="btn-brain" class="ghost" type="button">Brain</button>
+    <button id="btn-data" class="ghost" type="button">Data</button>
+    <button id="btn-theme" class="ghost icon-btn" type="button" aria-label="Switch to dark theme" title="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </nav>
+</div></header>
+
+<main>
+  <section class="hero" aria-labelledby="h1">
+    <div>
+      <h1 id="h1">The open source grammar checker that never trains AI on your writing</h1>
+      <p class="lead">Your thoughts are yours. Plainpen checks grammar, spelling, punctuation and style entirely in your browser, so nothing you write is uploaded, stored or used to train an AI model. It is free, with no login and no ads, and it handles long documents.</p>
+      <p class="repo-line" data-repo><a class="repo-link" href="https://github.com/konkomaji/plainpen" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg><span>View the source code on GitHub</span></a></p>
+    </div>
+    <svg class="hero-art" viewBox="0 0 320 240" role="img" aria-label="A sheet of text with proofreader marks and a pen">
+      <rect class="a-soft" x="24" y="24" width="272" height="196" rx="28"/>
+      <rect class="a-paper" x="52" y="40" width="190" height="168" rx="14" stroke-width="2"/>
+      <g stroke-width="5" stroke-linecap="round">
+        <path class="a-line" d="M72 72h120M72 96h140M72 120h100M72 144h132M72 168h84"/>
+        <path class="a-spell" d="M150 76q4-5 8 0t8 0t8 0" fill="none" stroke-width="3"/>
+        <path class="a-gram" d="M72 100h40" stroke-width="3"/>
+        <path class="a-punct" d="M120 126h24M120 130h24" stroke-width="2"/>
+      </g>
+      <g class="a-pen"><path class="a-ink" d="M232 120l36 -36l16 16l-36 36l-22 6z"/><path fill="#fff" fill-opacity=".55" d="M262 90l12 12l-5 5l-12 -12z"/></g>
+      <path d="M214 208l12 -4l6 -12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+    </svg>
+  </section>
+
+  <section class="bench" aria-label="Grammar checker">
+    <div class="controls" id="controls">
+      <div class="sheet-title"><strong>Tools and settings</strong><button id="sheet-close" class="ghost" type="button">Done</button></div>
+      <div class="bar">
+        <div class="seg" role="radiogroup" aria-label="Writing mode" id="modes"></div>
+        <div class="group">
+          <label class="field">English
+            <select id="region">
+              <option value="en-US">American</option>
+              <option value="en-GB">British</option>
+              <option value="en-IN">Indian</option>
+              <option value="en-IN+bn">Indian + Banglish</option>
+            </select>
+          </label>
+          <label class="check"><input type="checkbox" id="style-on" checked> Style hints</label>
+        </div>
+      </div>
+      <div class="bar">
+        <div class="group">
+          <div class="menu">
+            <button id="btn-case" class="ghost" type="button" aria-haspopup="true" aria-expanded="false">Change case</button>
+            <div id="case-menu" class="menu-pop" role="menu" hidden></div>
+          </div>
+        </div>
+        <div class="group">
+          <button id="btn-paste" class="ghost" type="button">Paste</button>
+          <button id="btn-open" class="ghost" type="button">Open file</button>
+          <button id="btn-copy" class="ghost" type="button">Copy</button>
+          <button id="btn-save" class="ghost" type="button">Download</button>
+          <button id="btn-clear" class="ghost" type="button">Clear</button>
+          <input id="file" type="file" accept=".txt,.md,.text,text/plain,text/markdown" hidden>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet-wrap">
+      <div class="sheet" id="sheet">
+        <div class="rule" aria-hidden="true"></div>
+        <div class="editor-box">
+          <div id="mirror" class="mirror" aria-hidden="true"></div>
+          <textarea id="editor" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" aria-label="Your text" placeholder="Paste or type your text here. It stays on this device."></textarea>
+          <div id="chips" class="chips"></div>
+          <div id="drop" class="drop" hidden>Drop a text file to open it</div>
+        </div>
+        <div class="progress" id="progress" hidden><span id="progress-bar"></span></div>
+        <footer class="statusbar">
+          <span id="st-words">0 words</span>
+          <span id="st-chars">0 characters</span>
+          <span id="st-read">0 min read</span>
+          <span id="st-flesch">Readability n/a</span>
+          <span id="st-engine" class="engine" role="status">Loading dictionary</span>
+        </footer>
+      </div>
+
+      <aside class="margin" id="margin" aria-label="Writing notes">
+        <div class="score">
+          <svg id="penny" class="penny" data-mood="idle" viewBox="0 0 72 72" role="img" aria-label="Plainpen mascot">
+            <path class="p-nib" d="M29 18 L36 4 L43 18 Z"/>
+            <circle class="p-body" cx="36" cy="42" r="24"/>
+            <g data-face="idle"><circle class="p-eye" cx="28" cy="40" r="2.6"/><circle class="p-eye" cx="44" cy="40" r="2.6"/><path class="p-mouth" d="M30 51q6 4 12 0"/></g>
+            <g data-face="happy"><path class="p-mouth" d="M25 40q3 -4 6 0M41 40q3 -4 6 0"/><path class="p-mouth" d="M28 50q8 8 16 0"/><circle class="p-cheek" cx="24" cy="47" r="3.4"/><circle class="p-cheek" cx="48" cy="47" r="3.4"/><path class="p-spark" d="M60 14l2 5l5 2l-5 2l-2 5l-2 -5l-5 -2l5 -2z"/><path class="p-spark" d="M10 24l1.5 3.5l3.5 1.5l-3.5 1.5l-1.5 3.5l-1.5 -3.5l-3.5 -1.5l3.5 -1.5z"/></g>
+            <g data-face="think"><circle class="p-eye" cx="29" cy="38" r="2.6"/><circle class="p-eye" cx="45" cy="38" r="2.6"/><path class="p-mouth" d="M31 52h10"/><circle class="p-eye" cx="58" cy="22" r="2"/><circle class="p-eye" cx="63" cy="15" r="3"/></g>
+            <g data-face="worry"><circle class="p-eye" cx="28" cy="41" r="2.6"/><circle class="p-eye" cx="44" cy="41" r="2.6"/><path class="p-mouth" d="M30 54q6 -5 12 0"/><path class="p-mouth" d="M24 34l7 -2M48 34l-7 -2"/></g>
+          </svg>
+          <div class="score-text"><strong id="score-num">100</strong><span id="score-label">Clear</span><small id="score-sub"></small></div>
+        </div>
+        <div class="dial" aria-hidden="true"><i id="dial-fg"></i></div>
+        <div class="tabs" id="tabs" role="tablist" aria-label="Filter notes"></div>
+        <div id="notes" class="notes" aria-live="polite"></div>
+        <p class="hint-keys">Keys: Alt+Down next note, Alt+Up previous, Alt+Enter apply first fix.</p>
+      </aside>
+    </div>
+    <div id="banner" class="banner" role="alert" hidden></div>
+  </section>
+
+  <section class="content" aria-labelledby="h-why">
+    <h2 id="h-why">Your writing is not training data</h2>
+    <p>Many online writing tools process your text on their servers. Plainpen has no server that receives it. The checker runs on your device, in your browser, and the page is built so that it cannot send your text anywhere.</p>
+    <ul class="cards">
+      <li><h3>Nothing is uploaded</h3><p>Your text stays in the page. A strict content security policy blocks any request to another site.</p></li>
+      <li><h3>No AI inside</h3><p>Plainpen uses a dictionary, written rules and simple counting. There is no language model to feed.</p></li>
+      <li><h3>Open source</h3><p>Read every line, run it yourself, or change it. The MIT license lets you keep your own copy.</p></li>
+      <li><h3>You own what it learns</h3><p>Words and choices you teach it are encrypted on your device. Export or erase them any time.</p></li>
+    </ul>
+  </section>
+
+  <section class="content" aria-labelledby="h-checks">
+    <h2 id="h-checks">What Plainpen checks</h2>
+    <ul class="cards">
+      <li><h3>Spelling</h3><p>A 275,000 word dictionary, ranked by keyboard distance, sound and how common each word is. Proper nouns and your own words are respected.</p></li>
+      <li><h3>Grammar</h3><p>Subject and verb agreement, a and an, repeated words, mixed up pairs like their and there, irregular verbs and more.</p></li>
+      <li><h3>Punctuation</h3><p>Spacing around commas and full stops, repeated marks, and dashes. Plainpen asks you to avoid em dashes and suggests a comma, colon or full stop.</p></li>
+      <li><h3>Style and tone</h3><p>Wordy phrases, passive voice, weak intensifiers and long sentences, tuned to the writing mode you choose.</p></li>
+    </ul>
+  </section>
+
+  <section class="content" aria-labelledby="h-how">
+    <h2 id="h-how">How it works</h2>
+    <ol class="steps">
+      <li><strong>Paste your text.</strong> It can be a short message or a document with millions of characters.</li>
+      <li><strong>Choose how you write.</strong> Pick a mode and a kind of English. The rules change to match.</li>
+      <li><strong>Review the notes.</strong> Accept, dismiss or teach. Plainpen remembers what is useful to you.</li>
+    </ol>
+    <p>Everything runs in a web worker in your browser. The checker is built from three parts. Skeleton-Rank finds spelling suggestions by sound and keyboard distance. Tag-Lattice matches grammar patterns on word types, not only on exact words. Trust-Gate keeps a trust score for each rule and mode, and quiets rules that you keep dismissing.</p>
+  </section>
+
+  <section class="content" aria-labelledby="h-modes">
+    <h2 id="h-modes">Writing modes</h2>
+    <dl class="defs">
+      <dt>Professional</dt><dd>Business email and reports. Flags informal words, weak intensifiers, wordy phrases and exclamation marks.</dd>
+      <dt>Technical</dt><dd>Documentation and engineering text. Ignores code, file names and flags, accepts common technical terms, and avoids wording that talks down to the reader.</dd>
+      <dt>Simplified (STE)</dt><dd>Follows the ideas of ASD-STE100 Simplified Technical English: short sentences, simple tenses, no modal verbs like should or could, and plain words. Load your own approved word list for full vocabulary checks.</dd>
+      <dt>Friendly</dt><dd>Messages to people you know. Contractions and everyday slang are fine.</dd>
+      <dt>Casual</dt><dd>Chat and social posts. Understands text speak, stretched words like soooo, and mixed English with Hindi or Bengali words.</dd>
+    </dl>
+  </section>
+
+  <section class="content" aria-labelledby="h-privacy">
+    <h2 id="h-privacy">Privacy and security</h2>
+    <p>Your text is checked on your device and is never sent to a server. Learned words and settings are stored in your browser and encrypted with AES-GCM using a 256 bit key that the page cannot read. Backups are encrypted with a passphrase you choose. The page runs under a strict content security policy and uses no third party code for checking.</p>
+  </section>
+
+  <section class="content" aria-labelledby="h-faq">
+    <h2 id="h-faq">Frequently asked questions</h2>
+    <details open><summary>Will my writing be used to train AI?</summary><p>No. Your text never leaves your device, so there is nothing for anyone to collect or train on. Plainpen has no AI model inside it, and the source code is open so you can check.</p></details>
+    <details><summary>Is my text sent to a server?</summary><p>No. Checking runs in a web worker inside your browser. Your text is never uploaded. If the site owner turns on optional visit statistics, they only start after you agree, and they never include your text.</p></details>
+    <details><summary>Does Plainpen use AI?</summary><p>No. It uses a dictionary, written grammar rules and simple counting. It does not use a language model.</p></details>
+    <details><summary>Is it free, and do I need an account?</summary><p>It is free. There is no login, no ads and no usage limit.</p></details>
+    <details><summary>Which kinds of English does it support?</summary><p>American, British and Indian English spelling, plus an optional Banglish dialect for romanised Bengali words such as Pujo and Pandel. You can add your own names, places and preferred spellings in the Brain.</p></details>
+    <details><summary>What is Simplified Technical English?</summary><p>ASD-STE100 is a controlled language standard for technical writing. Plainpen's Simplified mode checks sentence length, tense, modal verbs and plain word choice. It does not include the official ASD dictionary, which is licensed separately.</p></details>
+    <details><summary>How does it learn?</summary><p>Each rule has a trust score for each writing mode. When you accept or dismiss a suggestion the score changes, and rules you keep dismissing go quiet. You can also teach a word as a name, place, brand, term or preferred spelling, with a note. All of this stays on your device.</p></details>
+    <details><summary>How long can the text be?</summary><p>Up to 12 million characters. Long text is checked in slices so the page stays responsive, and only changed paragraphs are checked again.</p></details>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <section class="support" aria-labelledby="h-support">
+      <h2 id="h-support">Keep Plainpen free</h2>
+      <p>Plainpen is free and open source, with no ads and no tracking of your writing. If it saved you time, you can buy me a coffee. It keeps the side projects alive.</p>
+      <p class="repo-line" data-repo><a class="repo-link" href="https://github.com/konkomaji/plainpen" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg><span>See the code on GitHub and contribute</span></a></p>
+      <a class="bmc-button" href="https://buymeacoffee.com/konko" target="_blank" rel="me noopener noreferrer" aria-label="Buy me a coffee"><img src="icons/bmc-button.svg" alt="Buy me a coffee" width="218" height="61" loading="lazy"></a>
+    </section>
+    <div class="site-row">
+      <p class="credit">Created by <a href="https://konkomaji.com" target="_blank" rel="noopener noreferrer author">Konko Maji</a>. Open source under the MIT license. No cookies.</p>
+      <nav class="legal" aria-label="Legal and contact"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="mailto:hello@konkomaji.com">Contact</a></nav>
+      <nav class="social" aria-label="Konko Maji on the web">
+        <a class="s-bmc" href="https://buymeacoffee.com/konko" target="_blank" rel="me noopener noreferrer" aria-label="Buy me a coffee" title="Buy me a coffee"><img src="icons/bmc-logo.svg" alt="" width="14" height="20"></a>
+        <a class="s-github" href="https://github.com/konkomaji" target="_blank" rel="me noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg></a>
+        <a class="s-instagram" href="https://www.instagram.com/whereiskonko/" target="_blank" rel="me noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg></a>
+        <a class="s-linkedin" href="https://www.linkedin.com/in/konkomaji" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg></a>
+        <a class="s-x" href="https://x.com/konkomaji" target="_blank" rel="me noopener noreferrer" aria-label="X" title="X"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg></a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div id="scrim" class="scrim" hidden></div>
+<nav id="mbar" class="mbar" aria-label="Writing tools">
+  <button id="mb-paste" type="button"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4h6l1 2h3v14H5V6h3zM9 4v2h6V4"/></svg><span>Paste</span></button>
+  <button id="mb-tools" type="button" aria-expanded="false" aria-controls="controls"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16M8 4v4M16 10v4M10 16v4"/></svg><span>Tools</span></button>
+  <button id="mb-notes" type="button" aria-expanded="false" aria-controls="margin"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Notes</span><b id="mb-count" class="count" hidden></b></button>
+</nav>
+
+<div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+
+<dialog id="dlg-brain" aria-labelledby="brain-title">
+  <form method="dialog" class="dlg-head"><h2 id="brain-title">The Brain</h2><button class="ghost" value="close" aria-label="Close">Close</button></form>
+  <p class="muted">Teach Plainpen a word. It will stop flagging it, and it will keep the casing you give. The note is for you.</p>
+  <div class="grid-form" id="teach-form">
+    <label>Word or name<input id="t-word" maxlength="64" autocomplete="off"></label>
+    <label>Exact spelling<input id="t-form" maxlength="64" autocomplete="off" placeholder="Same as the word"></label>
+    <label>Kind
+      <select id="t-kind">
+        <option value="name">Name of a person</option>
+        <option value="place">Place</option>
+        <option value="brand">Brand or product</option>
+        <option value="acronym">Acronym</option>
+        <option value="term">Term or jargon</option>
+        <option value="slang">Slang or dialect word</option>
+        <option value="prefer">Preferred spelling (replaces the word)</option>
+      </select>
+    </label>
+    <label class="wide">Note (optional)<textarea id="t-note" maxlength="300" rows="2"></textarea></label>
+    <div class="wide row"><button id="t-save" type="button" class="primary">Teach</button><span id="t-msg" class="muted" role="status"></span></div>
+  </div>
+  <h3>Taught words <span id="t-count" class="muted"></span></h3>
+  <input id="t-search" type="search" placeholder="Search taught words" aria-label="Search taught words" maxlength="64">
+  <ul id="t-list" class="t-list"></ul>
+  <div class="row">
+    <button id="lex-export" type="button" class="ghost">Export lexicon</button>
+    <button id="lex-import" type="button" class="ghost">Import lexicon</button>
+    <input id="lex-file" type="file" accept=".json,application/json" hidden>
+  </div>
+  <h3>Learned from your choices</h3>
+  <ul id="l-list" class="t-list"></ul>
+</dialog>
+
+<dialog id="dlg-data" aria-labelledby="data-title">
+  <form method="dialog" class="dlg-head"><h2 id="data-title">Your data</h2><button class="ghost" value="close" aria-label="Close">Close</button></form>
+  <p id="store-status" class="muted"></p>
+  <h3>Encrypted backup</h3>
+  <p class="muted">Protected with AES-GCM 256 and a key derived from your passphrase (PBKDF2, 600,000 rounds). We cannot recover a lost passphrase.</p>
+  <div class="grid-form">
+    <label class="wide">Passphrase (8 or more characters)<input id="bk-pass" type="password" autocomplete="new-password" maxlength="200"></label>
+    <div class="wide row"><button id="bk-export" type="button" class="primary">Export backup</button><button id="bk-import" type="button" class="ghost">Import backup</button><input id="bk-file" type="file" accept=".json,application/json" hidden><span id="bk-msg" class="muted" role="status"></span></div>
+  </div>
+  <h3>Erase everything</h3>
+  <p class="muted">Removes your draft, taught words, learning and the encryption key from this browser.</p>
+  <div class="row"><input id="wipe-confirm" placeholder="Type ERASE to confirm" maxlength="5" aria-label="Type ERASE to confirm"><button id="wipe" type="button" class="danger">Erase</button></div>
+  <h3 id="analytics-h" hidden>Visit statistics</h3>
+  <div id="analytics-box" hidden>
+    <p class="muted">The site owner can measure visits with Google Analytics. It is off until you agree, and it never receives your text.</p>
+    <label class="check"><input type="checkbox" id="analytics-consent"> Allow anonymous visit statistics</label>
+  </div>
+</dialog>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
